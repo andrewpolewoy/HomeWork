@@ -26,12 +26,11 @@ public class CallableSearch implements Callable<Long> {
 
     ISearchEngine search1 = (textSearch, wordSearch) -> {
         EasySearch countWord = new EasySearch();
-        long count = countWord.search(textSearch.toLowerCase(), wordSearch.toLowerCase());
-        return count;
+        return countWord.search(textSearch.toLowerCase(), wordSearch.toLowerCase());
     };
 
     @Override
-    public Long call() throws Exception {
+    public Long call() {
         return search1.search(this.text, this.word);
     }
 
